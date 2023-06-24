@@ -25,11 +25,11 @@ def result():
     x = np.array([[item_weight,item_fat_content,item_visibility,item_type,item_mrp,outlet_establishment_year,
                    outlet_size,outlet_location_type,outlet_type]])
 
-    scaler_path = r'C:\Users\LENOVO\Desktop\machine_learning projects\product demand prediction\sales_prediction_ml_model\sales_prediction _ml_model\models\sc.sav'
+    scaler_path = r'sc.sav'
     sc = joblib.load(scaler_path)
     x_std=sc.transform(x)
 
-    model_path = r'C:\Users\LENOVO\Desktop\machine_learning projects\product demand prediction\sales_prediction_ml_model\sales_prediction _ml_model\models\lr.sav'
+    model_path = r'lr.sav'
     model = joblib.load(model_path)
     y_pred = model.predict(x_std)
     if y_pred >= 10000.000:
